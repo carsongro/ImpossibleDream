@@ -9,10 +9,8 @@ import SwiftUI
 
 struct WelcomeVideo: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> some UIViewController {
-        VideoPlayerViewController()
+        WelcomeVideoViewController()
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
 }
