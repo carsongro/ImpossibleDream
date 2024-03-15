@@ -38,19 +38,7 @@ class WelcomeVideoViewController: UIViewController {
         self.player = player
         self.player?.play()
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(videoDidEnd),
-            name: AVPlayerItem.didPlayToEndTimeNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(resumeVideo),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
-        
+        addObservers()
         addPeriodicTimeObserver()
     }
     
@@ -61,15 +49,6 @@ class WelcomeVideoViewController: UIViewController {
     
     func updateFrame() {
         self.layer?.frame = view.bounds
-    }
-    
-    @objc private func videoDidEnd() {
-        player?.seek(to: .zero)
-        player?.play()
-    }
-    
-    @objc private func resumeVideo() {
-        player?.play()
     }
     
     /// Adds an observer of the player timing.
@@ -106,6 +85,44 @@ class WelcomeVideoViewController: UIViewController {
         } else if range ~= 9.75 {
             hapticsManager.rainbowHapticFalling()
         }
+    }
+}
+
+// MARK: - Notification Center
+
+extension WelcomeVideoViewController {
+    private func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(videoDidEnd),
+            name: AVPlayerItem.didPlayToEndTimeNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(resumeVideo),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+    }
+    
+    @objc private func videoDidEnd() {
+        player?.seek(to: .zero)
+        player?.play()
+    }
+    
+    @objc private func resumeVideo() {
+        player?.play()
+    }
+    
+    @objc private func didBecomeActive() {
+        hapticsManager.prepareHaptics()
     }
 }
 
