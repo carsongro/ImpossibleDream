@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B818BA942BA4B67200CF433C /* welcome.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B818BA932BA4B67200CF433C /* welcome.mp4 */; };
 		B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */; };
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
 		B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */; };
 		B8B1E13B2BA3B10F00ECC399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */; };
 		B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */; };
 		B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */; };
-		B8DE91FC2BA405BE000DB1B4 /* welcome.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B8DE91FB2BA405BE000DB1B4 /* welcome.mp4 */; };
 		B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */; };
 		B8DE92012BA412F9000DB1B4 /* CoreHapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE92002BA412F9000DB1B4 /* CoreHapticsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B818BA932BA4B67200CF433C /* welcome.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = welcome.mp4; sourceTree = "<group>"; };
 		B8B1E12F2BA3B10E00ECC399 /* ImpossibleDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpossibleDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleDreamApp.swift; sourceTree = "<group>"; };
 		B8B1E1342BA3B10E00ECC399 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideoViewController.swift; sourceTree = "<group>"; };
 		B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideo.swift; sourceTree = "<group>"; };
-		B8DE91FB2BA405BE000DB1B4 /* welcome.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = welcome.mp4; sourceTree = "<group>"; };
 		B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowGridView.swift; sourceTree = "<group>"; };
 		B8DE92002BA412F9000DB1B4 /* CoreHapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHapticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 		B8B1E1462BA3D09A00ECC399 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				B8DE91FB2BA405BE000DB1B4 /* welcome.mp4 */,
+				B818BA932BA4B67200CF433C /* welcome.mp4 */,
 				B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */,
 				B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */,
 			);
@@ -158,8 +158,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B818BA942BA4B67200CF433C /* welcome.mp4 in Resources */,
 				B8B1E13B2BA3B10F00ECC399 /* Preview Assets.xcassets in Resources */,
-				B8DE91FC2BA405BE000DB1B4 /* welcome.mp4 in Resources */,
 				B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,10 +15,12 @@ final class CoreHapticsManager {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
-        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
-        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
-        events.append(event)
+        for i in stride(from: 0, to: 0.15, by: 0.02) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
+            events.append(event)
+        }
         
         playEvents(events: events)
     }
@@ -69,7 +71,7 @@ final class CoreHapticsManager {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        for i in stride(from: 0, to: 1, by: 0.2) {
+        for i in stride(from: 0, to: 0.8, by: 0.2) {
             let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
             let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1 + i)

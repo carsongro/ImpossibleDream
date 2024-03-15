@@ -53,7 +53,7 @@ class WelcomeVideoViewController: UIViewController {
     
     /// Adds an observer of the player timing.
     private func addPeriodicTimeObserver() {
-        // Create a 0.5 second interval time.
+        // Create a 0.25 second interval time.
         let interval = CMTime(value: 1, timescale: 4)
         timeObserver = player?.addPeriodicTimeObserver(forInterval: interval,
                                                       queue: .main) { [weak self] time in
@@ -73,17 +73,16 @@ class WelcomeVideoViewController: UIViewController {
     
     private func playHaptics(for seconds: Double) {
         let range = (seconds - 0.075)...(seconds + 0.075)
-        
-        if range ~= 1.75 {
-            hapticsManager.outlineHaptic()
-        } else if range ~= 5.5 {
-            hapticsManager.glitchHaptic()
-        } else if range ~= 6.75 {
-            hapticsManager.glitchHapticLong()
-        } else if range ~= 9 {
+        if range ~= 0 {
             hapticsManager.rainbowHapticRising()
-        } else if range ~= 9.75 {
+        } else if range ~= 0.5 {
             hapticsManager.rainbowHapticFalling()
+        } else if range ~= 4 {
+            hapticsManager.outlineHaptic()
+        } else if range ~= 7.25 {
+            hapticsManager.glitchHapticLong()
+        } else if range ~= 9.0 {
+            hapticsManager.glitchHaptic()
         }
     }
 }

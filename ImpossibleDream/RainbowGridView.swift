@@ -30,7 +30,6 @@ struct RainbowGridView: View {
             .symbolRenderingMode(.multicolor)
             .symbolEffect(
                 .variableColor
-                .iterative
                 .reversing
                 .hideInactiveLayers
             )
