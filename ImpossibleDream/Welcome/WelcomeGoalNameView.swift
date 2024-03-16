@@ -1,5 +1,5 @@
 //
-//  EditGoalView.swift
+//  WelcomeGoalNameView.swift
 //  ImpossibleDream
 //
 //  Created by Carson Gross on 3/15/24.
@@ -8,7 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct EditGoalView: View {
+struct WelcomeGoalNameView: View {
+    @Environment(\.modelContext) var modelContext
+    
     @Bindable var goal: Goal
     @State private var newTaskName = ""
     
@@ -39,6 +41,12 @@ struct EditGoalView: View {
                 }
                 .listRowBackground (Color.clear.background(.ultraThinMaterial))
             }
+            
+            Button("Delete") {
+                withAnimation {
+                    modelContext.delete(goal)
+                }
+            }
         }
         .scrollContentBackground(.hidden)
         .background(.clear)
@@ -59,8 +67,6 @@ struct EditGoalView: View {
             goal.tasks.remove(at: index)
         }
     }
-    
-    
 }
 
 #Preview {
@@ -68,7 +74,7 @@ struct EditGoalView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Goal.self, configurations: config)
         let example = Goal(name: "Example Goal")
-        return EditGoalView(goal: example)
+        return WelcomeGoalNameView(goal: example)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container.")

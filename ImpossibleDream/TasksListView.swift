@@ -10,7 +10,6 @@ import SwiftData
 
 struct TasksListView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var tasks: [GoalTask]
     
     var goal: Goal
     
@@ -21,7 +20,7 @@ struct TasksListView: View {
             }
             
             Section {
-                ForEach(tasks) { task in
+                ForEach(goal.tasks) { task in
                     Text(task.name)
                 }
             }

@@ -13,6 +13,7 @@
 		B818BA9B2BA4FE1600CF433C /* GoalTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BA9A2BA4FE1600CF433C /* GoalTask.swift */; };
 		B818BA9D2BA5179100CF433C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BA9C2BA5179100CF433C /* WelcomeView.swift */; };
 		B818BAA82BA519B000CF433C /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BAA72BA519B000CF433C /* EditGoalView.swift */; };
+		B818BAAA2BA53C9800CF433C /* WelcomeGoalNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BAA92BA53C9800CF433C /* WelcomeGoalNameView.swift */; };
 		B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */; };
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
 		B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		B818BA9A2BA4FE1600CF433C /* GoalTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTask.swift; sourceTree = "<group>"; };
 		B818BA9C2BA5179100CF433C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B818BAA72BA519B000CF433C /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
+		B818BAA92BA53C9800CF433C /* WelcomeGoalNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeGoalNameView.swift; sourceTree = "<group>"; };
 		B8B1E12F2BA3B10E00ECC399 /* ImpossibleDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpossibleDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleDreamApp.swift; sourceTree = "<group>"; };
 		B8B1E1342BA3B10E00ECC399 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				B818BA9C2BA5179100CF433C /* WelcomeView.swift */,
+				B818BAA92BA53C9800CF433C /* WelcomeGoalNameView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */,
 				B818BA9D2BA5179100CF433C /* WelcomeView.swift in Sources */,
 				B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */,
+				B818BAAA2BA53C9800CF433C /* WelcomeGoalNameView.swift in Sources */,
 				B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */,
 				B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */,
 				B8DE92012BA412F9000DB1B4 /* CoreHapticsManager.swift in Sources */,

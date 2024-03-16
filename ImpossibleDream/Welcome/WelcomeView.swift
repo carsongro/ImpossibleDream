@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 enum StepType {
     case intro, about
@@ -29,15 +30,17 @@ struct WelcomeStep: Identifiable {
 }
 
 struct WelcomeView: View {
+    @Environment(\.modelContext) var modelContext
+    
     @State private var welcomePosition: Int? = WelcomeStep.all.first?.id
     @State private var playingVideo = true
     
-    let action: () -> Void
+    @Query var goals: [Goal]
     
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(WelcomeStep.all) { step in
+                ForEach(WelcomeStep.all[0...(goals.count > 0 ? WelcomeStep.all.count - 1 : 1)]) { step in
                     Group {
                         switch step.type {
                         case .intro: arrowUpButton
@@ -95,23 +98,37 @@ struct WelcomeView: View {
     }
     
     private var aboutView: some View {
-        VStack(spacing: 20) {
-            Text("Impossible Dream is designed to help you achieve one goal.")
-            
-            Button(action: action) {
-                Text("Get Started")
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 8)
+        Group {
+            if let first = goals.first {
+                WelcomeGoalNameView(goal: first)
+            } else {
+                VStack(spacing: 20) {
+                    Text("Impossible Dream is designed to help you achieve one goal.")
+                    
+                    Button(action: addGoal) {
+                        Text("Get Started")
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.plain)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30))
+                    
+                    
+                }
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
             }
-            .buttonStyle(.plain)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30))
         }
         .containerRelativeFrame(.vertical)
-        .multilineTextAlignment(.center)
-        .padding(.horizontal)
+    }
+    
+    func addGoal() {
+        guard goals.count == 0 else { return }
+        let goal = Goal()
+        modelContext.insert(goal)
     }
 }
 
 #Preview {
-    WelcomeView() { }
+    WelcomeView()
 }
