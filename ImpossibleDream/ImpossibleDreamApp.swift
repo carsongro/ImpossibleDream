@@ -13,5 +13,6 @@ struct ImpossibleDreamApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Goal.self)
     }
 }

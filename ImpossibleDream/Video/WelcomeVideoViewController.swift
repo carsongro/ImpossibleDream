@@ -13,21 +13,23 @@ class WelcomeVideoViewController: UIViewController {
     
     var player: AVPlayer?
     var layer: AVPlayerLayer?
+    var isPlaying = true {
+        didSet {
+            if isPlaying {
+                playVideo()
+            } else {
+                pauseVideo()
+            }
+        }
+    }
     
     private let hapticsManager = CoreHapticsManager()
     private var timeObserver: Any?
-    
-    deinit {
-        removePeriodicTimeObserver()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         hapticsManager.prepareHaptics()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
         let player = AVPlayer(url: URL(filePath: Bundle.main.path(forResource: "welcome", ofType: "mp4")!))
         let layer = AVPlayerLayer(player: player)
         layer.frame = view.bounds
@@ -36,10 +38,20 @@ class WelcomeVideoViewController: UIViewController {
         view.layer.addSublayer(layer)
         player.volume = 0
         self.player = player
-        self.player?.play()
         
         addObservers()
-        addPeriodicTimeObserver()
+        
+        if isPlaying {
+            playVideo()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isPlaying {
+            playVideo()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,6 +63,16 @@ class WelcomeVideoViewController: UIViewController {
         self.layer?.frame = view.bounds
     }
     
+    func playVideo() {
+        player?.play()
+        addPeriodicTimeObserver()
+    }
+    
+    func pauseVideo() {
+        player?.pause()
+        removePeriodicTimeObserver()
+    }
+    
     /// Adds an observer of the player timing.
     private func addPeriodicTimeObserver() {
         // Create a 0.25 second interval time.
@@ -60,7 +82,9 @@ class WelcomeVideoViewController: UIViewController {
             guard let self else { return }
             // Update the published currentTime and duration values.
             let seconds = time.seconds
-            playHaptics(for: seconds)
+            Task { @MainActor [weak self] in
+                self?.playHaptics(for: seconds)
+            }
         }
     }
 
@@ -71,6 +95,7 @@ class WelcomeVideoViewController: UIViewController {
         self.timeObserver = nil
     }
     
+    @MainActor
     private func playHaptics(for seconds: Double) {
         let range = (seconds - 0.075)...(seconds + 0.075)
         if range ~= 0 {
@@ -113,11 +138,15 @@ extension WelcomeVideoViewController {
     
     @objc private func videoDidEnd() {
         player?.seek(to: .zero)
-        player?.play()
+        if isPlaying {
+            player?.play()
+        }
     }
     
     @objc private func resumeVideo() {
-        player?.play()
+        if isPlaying {
+            player?.play()
+        }
     }
     
     @objc private func didBecomeActive() {
