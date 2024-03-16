@@ -1,5 +1,5 @@
 //
-//  WelcomeGoalNameView.swift
+//  WelcomeCreateGoalView.swift
 //  ImpossibleDream
 //
 //  Created by Carson Gross on 3/15/24.
@@ -8,26 +8,32 @@
 import SwiftUI
 import SwiftData
 
-struct WelcomeGoalNameView: View {
+struct WelcomeCreateGoalView: View {
     @Environment(\.modelContext) var modelContext
     
     @Bindable var goal: Goal
     @State private var newTaskName = ""
     
+    let action: () -> Void
+    
     var body: some View {
         Form {
-            Text("Enter a name for a goal you will achieve")
-                .listRowBackground(Color.clear)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-                .safeAreaPadding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+            Section {
+                Text(goal.name.isEmpty ? "Create Your Goal" : goal.name)
+                    .font(.largeTitle.bold())
+                    .listRowBackground(Color.clear)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .safeAreaPadding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                    .lineLimit(2)
+            }
             
             Section {
                 TextField("Goal Name", text: $goal.name)
                     .listRowBackground (Color.clear.background(.ultraThinMaterial))
             }
             
-            Section("Tasks") {
+            Section {
                 ForEach(goal.tasks) { task in
                     Text(task.name)
                         .listRowBackground (Color.clear.background(.ultraThinMaterial))
@@ -40,12 +46,22 @@ struct WelcomeGoalNameView: View {
                     Button("Add", action: addTask)
                 }
                 .listRowBackground (Color.clear.background(.ultraThinMaterial))
+            } header: {
+                Text("Tasks")
+            } footer: {
+                Text("The goal name and tasks can be changed later.")
             }
             
-            Button("Delete") {
-                withAnimation {
-                    modelContext.delete(goal)
+            Section {
+                Button(action: action) {
+                    Text("Done")
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
                 }
+                .buttonStyle(.plain)
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30))
+                .frame(maxWidth: .infinity)
+                .listRowBackground(Color.clear)
             }
         }
         .scrollContentBackground(.hidden)
@@ -74,7 +90,7 @@ struct WelcomeGoalNameView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Goal.self, configurations: config)
         let example = Goal(name: "Example Goal")
-        return WelcomeGoalNameView(goal: example)
+        return WelcomeCreateGoalView(goal: example) { }
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container.")

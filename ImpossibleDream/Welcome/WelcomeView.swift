@@ -100,7 +100,7 @@ struct WelcomeView: View {
     private var aboutView: some View {
         Group {
             if let first = goals.first {
-                WelcomeGoalNameView(goal: first)
+                WelcomeCreateGoalView(goal: first) { }
             } else {
                 VStack(spacing: 20) {
                     Text("Impossible Dream is designed to help you achieve one goal.")
