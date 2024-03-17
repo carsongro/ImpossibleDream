@@ -15,4 +15,22 @@ extension View {
         return self
         #endif
     }
+    
+    func gradientBackground() -> some View {
+        var gradient: some View {
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(red: (130.0 / 255.0), green: (109.0 / 255.0), blue: (204.0 / 255.0)),
+                    Color(red: (130.0 / 255.0), green: (130.0 / 255.0), blue: (211.0 / 255.0)),
+                    Color(red: (131.0 / 255.0), green: (160.0 / 255.0), blue: (218.0 / 255.0))
+                ]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+            .flipsForRightToLeftLayoutDirection(false)
+            .ignoresSafeArea()
+        }
+        
+        return self.background(gradient)
+    }
 }

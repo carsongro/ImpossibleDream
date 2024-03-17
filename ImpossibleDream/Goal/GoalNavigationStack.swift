@@ -9,34 +9,26 @@ import SwiftUI
 import SwiftData
 
 struct GoalNavigationStack: View {
-    @Query var goals: [Goal]
+    @Bindable var goal: Goal
     
     var body: some View {
         NavigationStack {
-            if let goal = goals.first {
-                GoalView(goal: goal)
-                    .navigationTitle(goals.first?.name ?? "My Goal")
-                    .navigationDestination(for: Goal.self, destination: EditGoalView.init)
-                    .notvisionOS { $0.background(gradient) }
-            }
+            GoalView(goal: goal)
+                .navigationTitle(goal.name)
+                .navigationDestination(for: Goal.self, destination: EditGoalView.init)
+                .notvisionOS { $0.gradientBackground() }
         }
-    }
-    
-    private var gradient: some View {
-        LinearGradient(
-            gradient: Gradient(colors: [
-                Color(red: (130.0 / 255.0), green: (109.0 / 255.0), blue: (204.0 / 255.0)),
-                Color(red: (130.0 / 255.0), green: (130.0 / 255.0), blue: (211.0 / 255.0)),
-                Color(red: (131.0 / 255.0), green: (160.0 / 255.0), blue: (218.0 / 255.0))
-            ]),
-            startPoint: .leading,
-            endPoint: .trailing
-        )
-        .flipsForRightToLeftLayoutDirection(false)
-        .ignoresSafeArea()
     }
 }
 
 #Preview {
-    GoalNavigationStack()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Goal.self, configurations: config)
+        let example = Goal(name: "Example Goal")
+        return GoalNavigationStack(goal: example)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
 }

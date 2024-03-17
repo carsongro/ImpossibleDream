@@ -13,8 +13,14 @@ struct ContentView: View {
     @Query var goals: [Goal]
     
     var body: some View {
-        GoalNavigationStack()
-            .fullScreenCover(isPresented: .constant(goals.count == 0), content: WelcomeView.init)
+        Group {
+            if let goal = goals.first {
+                GoalNavigationStack(goal: goal)
+            } else {
+                Color.black
+            }
+        }
+        .fullScreenCover(isPresented: .constant(goals.count == 0), content: WelcomeView.init)
     }
 }
 

@@ -17,15 +17,15 @@ struct EditGoalView: View {
     
     var body: some View {
         Form {
-            Section {
+            Section("Name") {
                 TextField("Goal Name", text: $goal.name)
-                    .listRowBackground (Color.clear.background(.ultraThinMaterial))
+                    .listRowBackground(Color.clear.background(.ultraThinMaterial))
             }
             
             Section("Tasks") {
                 ForEach(goal.tasks) { task in
                     Text(task.name)
-                        .listRowBackground (Color.clear.background(.ultraThinMaterial))
+                        .listRowBackground(Color.clear.background(.ultraThinMaterial))
                 }
                 .onDelete(perform: deleteTask)
                 
@@ -34,7 +34,7 @@ struct EditGoalView: View {
                     
                     Button("Add", action: addTask)
                 }
-                .listRowBackground (Color.clear.background(.ultraThinMaterial))
+                .listRowBackground(Color.clear.background(.ultraThinMaterial))
             }
             
             Section {
@@ -42,6 +42,7 @@ struct EditGoalView: View {
                     showingDeleteAlert.toggle()
                 }
                 .foregroundStyle(.red)
+                .listRowBackground(Color.clear.background(.ultraThinMaterial))
                 .confirmationDialog(
                     "Are you sure you want to delete this goal?",
                     isPresented: $showingDeleteAlert,
@@ -51,8 +52,10 @@ struct EditGoalView: View {
                     }
             }
         }
+        .navigationTitle("Edit Goal")
+        .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
-        .background(.clear)
+        .notvisionOS { $0.gradientBackground() }
     }
     
     func addTask() {

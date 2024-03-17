@@ -17,6 +17,8 @@
 		B84605132BA684BB00505F44 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605122BA684BB00505F44 /* GoalView.swift */; };
 		B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605142BA6885700505F44 /* GoalTaskRowView.swift */; };
 		B84605172BA68BA200505F44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605162BA68BA200505F44 /* Extensions.swift */; };
+		B846051A2BA6982D00505F44 /* Goo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605192BA6982D00505F44 /* Goo.swift */; };
+		B846051E2BA69FBE00505F44 /* RedRectangles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B846051D2BA69FBE00505F44 /* RedRectangles.swift */; };
 		B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */; };
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
 		B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		B84605122BA684BB00505F44 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		B84605142BA6885700505F44 /* GoalTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTaskRowView.swift; sourceTree = "<group>"; };
 		B84605162BA68BA200505F44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B84605192BA6982D00505F44 /* Goo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goo.swift; sourceTree = "<group>"; };
+		B846051D2BA69FBE00505F44 /* RedRectangles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedRectangles.swift; sourceTree = "<group>"; };
 		B8B1E12F2BA3B10E00ECC399 /* ImpossibleDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpossibleDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleDreamApp.swift; sourceTree = "<group>"; };
 		B8B1E1342BA3B10E00ECC399 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 		B818BAA22BA5189800CF433C /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				B84605182BA697F100505F44 /* BackgroundEffects */,
 				B818BA9C2BA5179100CF433C /* WelcomeView.swift */,
 				B818BAA92BA53C9800CF433C /* WelcomeCreateGoalView.swift */,
 			);
@@ -97,6 +102,15 @@
 				B818BAA72BA519B000CF433C /* EditGoalView.swift */,
 			);
 			path = Goal;
+			sourceTree = "<group>";
+		};
+		B84605182BA697F100505F44 /* BackgroundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				B84605192BA6982D00505F44 /* Goo.swift */,
+				B846051D2BA69FBE00505F44 /* RedRectangles.swift */,
+			);
+			path = BackgroundEffects;
 			sourceTree = "<group>";
 		};
 		B8B1E1262BA3B10E00ECC399 = {
@@ -234,11 +248,13 @@
 				B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */,
 				B818BA9B2BA4FE1600CF433C /* GoalTask.swift in Sources */,
 				B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */,
+				B846051E2BA69FBE00505F44 /* RedRectangles.swift in Sources */,
 				B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */,
 				B84605112BA6831800505F44 /* GoalNavigationStack.swift in Sources */,
 				B818BA9D2BA5179100CF433C /* WelcomeView.swift in Sources */,
 				B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */,
 				B818BAAA2BA53C9800CF433C /* WelcomeCreateGoalView.swift in Sources */,
+				B846051A2BA6982D00505F44 /* Goo.swift in Sources */,
 				B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */,
 				B84605172BA68BA200505F44 /* Extensions.swift in Sources */,
 				B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */,
