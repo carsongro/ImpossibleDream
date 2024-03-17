@@ -99,13 +99,5 @@ struct WelcomeCreateGoalView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Goal.self, configurations: config)
-        let example = Goal(name: "Example Goal")
-        return WelcomeCreateGoalView()
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
+    WelcomeCreateGoalView()
 }

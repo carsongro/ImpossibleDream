@@ -15,6 +15,8 @@
 		B818BAAA2BA53C9800CF433C /* WelcomeCreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BAA92BA53C9800CF433C /* WelcomeCreateGoalView.swift */; };
 		B84605112BA6831800505F44 /* GoalNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605102BA6831800505F44 /* GoalNavigationStack.swift */; };
 		B84605132BA684BB00505F44 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605122BA684BB00505F44 /* GoalView.swift */; };
+		B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605142BA6885700505F44 /* GoalTaskRowView.swift */; };
+		B84605172BA68BA200505F44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605162BA68BA200505F44 /* Extensions.swift */; };
 		B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */; };
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
 		B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		B818BAA92BA53C9800CF433C /* WelcomeCreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCreateGoalView.swift; sourceTree = "<group>"; };
 		B84605102BA6831800505F44 /* GoalNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalNavigationStack.swift; sourceTree = "<group>"; };
 		B84605122BA684BB00505F44 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		B84605142BA6885700505F44 /* GoalTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTaskRowView.swift; sourceTree = "<group>"; };
+		B84605162BA68BA200505F44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B8B1E12F2BA3B10E00ECC399 /* ImpossibleDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpossibleDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleDreamApp.swift; sourceTree = "<group>"; };
 		B8B1E1342BA3B10E00ECC399 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
+				B84605162BA68BA200505F44 /* Extensions.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			children = (
 				B84605102BA6831800505F44 /* GoalNavigationStack.swift */,
 				B84605122BA684BB00505F44 /* GoalView.swift */,
+				B84605142BA6885700505F44 /* GoalTaskRowView.swift */,
 				B818BAA72BA519B000CF433C /* EditGoalView.swift */,
 			);
 			path = Goal;
@@ -225,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B818BA992BA4FE0E00CF433C /* Goal.swift in Sources */,
+				B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */,
 				B818BA9B2BA4FE1600CF433C /* GoalTask.swift in Sources */,
 				B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */,
 				B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */,
@@ -233,6 +240,7 @@
 				B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */,
 				B818BAAA2BA53C9800CF433C /* WelcomeCreateGoalView.swift in Sources */,
 				B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */,
+				B84605172BA68BA200505F44 /* Extensions.swift in Sources */,
 				B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */,
 				B84605132BA684BB00505F44 /* GoalView.swift in Sources */,
 				B8DE92012BA412F9000DB1B4 /* CoreHapticsManager.swift in Sources */,
@@ -388,13 +396,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Carson-Gross.ImpossibleDream";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -429,13 +437,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Carson-Gross.ImpossibleDream";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

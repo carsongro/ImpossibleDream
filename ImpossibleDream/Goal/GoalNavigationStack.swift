@@ -13,14 +13,27 @@ struct GoalNavigationStack: View {
     
     var body: some View {
         NavigationStack {
-            Group {
-                if let goal = goals.first {
-                    GoalView(goal: goal)
-                }
+            if let goal = goals.first {
+                GoalView(goal: goal)
+                    .navigationTitle(goals.first?.name ?? "My Goal")
+                    .navigationDestination(for: Goal.self, destination: EditGoalView.init)
+                    .notvisionOS { $0.background(gradient) }
             }
-            .navigationTitle(goals.first?.name ?? "My Goal")
-            .navigationDestination(for: Goal.self, destination: EditGoalView.init)
         }
+    }
+    
+    private var gradient: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [
+                Color(red: (130.0 / 255.0), green: (109.0 / 255.0), blue: (204.0 / 255.0)),
+                Color(red: (130.0 / 255.0), green: (130.0 / 255.0), blue: (211.0 / 255.0)),
+                Color(red: (131.0 / 255.0), green: (160.0 / 255.0), blue: (218.0 / 255.0))
+            ]),
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+        .flipsForRightToLeftLayoutDirection(false)
+        .ignoresSafeArea()
     }
 }
 

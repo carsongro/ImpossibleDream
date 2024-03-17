@@ -9,17 +9,25 @@ import SwiftUI
 import SwiftData
 
 struct GoalView: View {
-    var goal: Goal
+    @Bindable var goal: Goal
     
     var body: some View {
-        Text(goal.name)
-            .toolbar {
-                Menu("Options", systemImage: "ellipsis.circle") {
-                    NavigationLink(value: goal) {
-                        Label("Edit Goal", systemImage: "pencil")
-                    }
+        Form {
+            Section {
+                ForEach(goal.tasks) { task in
+                    GoalTaskRowView(task: task)
+                        .notvisionOS { $0.listRowBackground(Color.clear.background(.ultraThinMaterial)) }
                 }
             }
+        }
+        .scrollContentBackground(.hidden)
+        .toolbar {
+            Menu("Options", systemImage: "ellipsis.circle") {
+                NavigationLink(value: goal) {
+                    Label("Edit Goal", systemImage: "pencil")
+                }
+            }
+        }
     }
 }
 
