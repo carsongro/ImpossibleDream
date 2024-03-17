@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 enum StepType {
-    case intro, about
+    case intro, create
 }
 
 struct WelcomeStep: Identifiable {
@@ -20,7 +20,7 @@ struct WelcomeStep: Identifiable {
     static var all: [WelcomeStep] {
         [
             .init(id: 1, name: "", type: .intro),
-            .init(id: 2, name: "About", type: .about),
+            .init(id: 2, name: "Create", type: .create)
         ]
     }
     
@@ -35,16 +35,14 @@ struct WelcomeView: View {
     @State private var welcomePosition: Int? = WelcomeStep.all.first?.id
     @State private var playingVideo = true
     
-    @Query var goals: [Goal]
-    
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(WelcomeStep.all[0...(goals.count > 0 ? WelcomeStep.all.count - 1 : 1)]) { step in
+                ForEach(WelcomeStep.all) { step in
                     Group {
                         switch step.type {
-                        case .intro: arrowUpButton
-                        case .about: aboutView
+                        case .intro: arrowUpView
+                        case .create: createView
                         }
                     }
                     .foregroundStyle(.white)
@@ -73,13 +71,15 @@ struct WelcomeView: View {
         }
     }
     
-    private var arrowUpButton: some View {
+    private var arrowUpView: some View {
         VStack {
             Spacer()
             
             Button {
                 withAnimation {
-                    welcomePosition = 2
+                    if let welcomePosition {
+                        self.welcomePosition = welcomePosition + 1
+                    }
                 }
             } label: {
                 Image(systemName: "arrow.up")
@@ -97,35 +97,9 @@ struct WelcomeView: View {
         .containerRelativeFrame(.vertical)
     }
     
-    private var aboutView: some View {
-        Group {
-            if let first = goals.first {
-                WelcomeCreateGoalView(goal: first) { }
-            } else {
-                VStack(spacing: 20) {
-                    Text("Impossible Dream is designed to help you achieve one goal.")
-                    
-                    Button(action: addGoal) {
-                        Text("Get Started")
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 8)
-                    }
-                    .buttonStyle(.plain)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30))
-                    
-                    
-                }
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-            }
-        }
-        .containerRelativeFrame(.vertical)
-    }
-    
-    func addGoal() {
-        guard goals.count == 0 else { return }
-        let goal = Goal()
-        modelContext.insert(goal)
+    private var createView: some View {
+        WelcomeCreateGoalView()
+            .containerRelativeFrame(.vertical)
     }
 }
 

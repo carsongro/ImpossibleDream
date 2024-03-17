@@ -9,17 +9,14 @@ import SwiftUI
 import SwiftData
 
 struct EditGoalView: View {
+    @Environment(\.modelContext) private var modelContext
+    
     @Bindable var goal: Goal
     @State private var newTaskName = ""
+    @State private var showingDeleteAlert = false
     
     var body: some View {
         Form {
-            Text("Enter a name for a goal you will achieve")
-                .listRowBackground(Color.clear)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-                .safeAreaPadding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-            
             Section {
                 TextField("Goal Name", text: $goal.name)
                     .listRowBackground (Color.clear.background(.ultraThinMaterial))
@@ -38,6 +35,20 @@ struct EditGoalView: View {
                     Button("Add", action: addTask)
                 }
                 .listRowBackground (Color.clear.background(.ultraThinMaterial))
+            }
+            
+            Section {
+                Button("Delete Goal", systemImage: "trash", role: .destructive) {
+                    showingDeleteAlert.toggle()
+                }
+                .foregroundStyle(.red)
+                .confirmationDialog(
+                    "Are you sure you want to delete this goal?",
+                    isPresented: $showingDeleteAlert,
+                    titleVisibility: .visible) {
+                        Button("Cancel", role: .cancel) { showingDeleteAlert.toggle() }
+                        Button("Delete", role: .destructive) { modelContext.delete(goal) }
+                    }
             }
         }
         .scrollContentBackground(.hidden)

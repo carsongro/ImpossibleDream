@@ -12,13 +12,15 @@ import SwiftData
 class Goal {
     var name: String
     var isComplete: Bool
-    @Relationship(deleteRule: .cascade) var tasks = [GoalTask]()
+    @Relationship(deleteRule: .cascade) var tasks: [GoalTask]
     
     init(
         name: String = "",
-        isComplete: Bool = false
+        isComplete: Bool = false,
+        tasks: [GoalTask] = [GoalTask]()
     ) {
         self.name = name
         self.isComplete = isComplete
+        self.tasks = tasks
     }
 }

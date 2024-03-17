@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var goals: [Goal]
     
     var body: some View {
-        NavigationStack {
-            WelcomeView()
-        }
+        GoalNavigationStack()
+            .fullScreenCover(isPresented: .constant(goals.count == 0), content: WelcomeView.init)
     }
 }
 

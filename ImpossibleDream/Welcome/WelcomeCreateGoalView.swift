@@ -11,37 +11,42 @@ import SwiftData
 struct WelcomeCreateGoalView: View {
     @Environment(\.modelContext) var modelContext
     
-    @Bindable var goal: Goal
+    @State private var goalName = ""
     @State private var newTaskName = ""
-    
-    let action: () -> Void
+    @State private var tasks = [GoalTask]()
     
     var body: some View {
         Form {
             Section {
-                Text(goal.name.isEmpty ? "Create Your Goal" : goal.name)
+                Text(goalName.isEmpty ? "Create Your Goal" : goalName)
                     .font(.largeTitle.bold())
                     .listRowBackground(Color.clear)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
                     .safeAreaPadding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
                     .lineLimit(2)
+                    .listRowSeparator(.hidden)
+                
+                Text("Impossible Dream is designed to help you \(goalName.isEmpty ? "achieve one goal" : goalName).")
+                    .font(.title3)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
             }
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
             
             Section {
-                TextField("Goal Name", text: $goal.name)
+                TextField("Goal Name", text: $goalName)
                     .listRowBackground (Color.clear.background(.ultraThinMaterial))
             }
             
             Section {
-                ForEach(goal.tasks) { task in
+                ForEach(tasks) { task in
                     Text(task.name)
                         .listRowBackground (Color.clear.background(.ultraThinMaterial))
                 }
                 .onDelete(perform: deleteTask)
                 
                 HStack {
-                    TextField("Add a new task for \(goal.name)", text: $newTaskName)
+                    TextField("Add a new task for \(goalName)", text: $newTaskName)
                     
                     Button("Add", action: addTask)
                 }
@@ -53,8 +58,8 @@ struct WelcomeCreateGoalView: View {
             }
             
             Section {
-                Button(action: action) {
-                    Text("Done")
+                Button(action: createGoal) {
+                    Text("Begin")
                         .padding(.horizontal, 10)
                         .padding(.vertical, 8)
                 }
@@ -62,6 +67,7 @@ struct WelcomeCreateGoalView: View {
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30))
                 .frame(maxWidth: .infinity)
                 .listRowBackground(Color.clear)
+                .disabled(goalName.isEmpty)
             }
         }
         .scrollContentBackground(.hidden)
@@ -73,14 +79,21 @@ struct WelcomeCreateGoalView: View {
         
         withAnimation {
             let task = GoalTask(name: newTaskName)
-            goal.tasks.append(task)
+            tasks.append(task)
             newTaskName = ""
         }
     }
     
     func deleteTask(_ indexSet: IndexSet) {
         for index in indexSet {
-            goal.tasks.remove(at: index)
+            tasks.remove(at: index)
+        }
+    }
+    
+    func createGoal() {
+        let goal = Goal(name: goalName, tasks: tasks)
+        withAnimation {
+            modelContext.insert(goal)
         }
     }
 }
@@ -90,7 +103,7 @@ struct WelcomeCreateGoalView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Goal.self, configurations: config)
         let example = Goal(name: "Example Goal")
-        return WelcomeCreateGoalView(goal: example) { }
+        return WelcomeCreateGoalView()
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container.")
