@@ -22,9 +22,7 @@ struct RedRectangles: View {
                 rect3
             }
             
-            Text("Impossible")
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            ImpossibleText()
                 .foregroundStyle(.black)
         }
         .onAppear(perform: CoreHapticsManager.shared.prepareHaptics)

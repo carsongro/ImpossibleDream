@@ -64,9 +64,7 @@ struct EruptEffect: View {
             
             // TODO: Add tilt
             if showEruption {
-                Text("Impossible")
-                    .font(.system(size: 60))
-                    .fontWeight(.bold)
+                ImpossibleText()
                     .foregroundStyle(.black)
                     .opacity(0.9)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -111,9 +109,7 @@ struct EruptEffect: View {
         if showEruption {
             Rectangle()
         } else {
-            Text("Impossible")
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            ImpossibleText()
                 .foregroundStyle(.black)
                 .opacity(1)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -12,9 +12,7 @@ struct RainbowGridView: View, @unchecked Sendable {
         ZStack {
             gridView
             
-            Text("Impossible")
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            ImpossibleText()
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

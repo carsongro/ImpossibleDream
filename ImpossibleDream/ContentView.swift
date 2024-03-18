@@ -17,10 +17,11 @@ struct ContentView: View {
             if let goal = goals.first {
                 GoalNavigationStack(goal: goal)
             } else {
-                Color.black
+//                Color.black
+                WelcomeView()
             }
         }
-        .fullScreenCover(isPresented: .constant(goals.count == 0), content: WelcomeView.init)
+//        .fullScreenCover(isPresented: .constant(goals.count == 0), content: WelcomeView.init)
     }
 }
 

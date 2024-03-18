@@ -60,7 +60,7 @@ struct WelcomeView: View {
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)
         .background {
-            Glitch()
+            RedactedGrid()
                 .blur(radius: playingVideo ? 0 : 20)
         }
         .ignoresSafeArea()
