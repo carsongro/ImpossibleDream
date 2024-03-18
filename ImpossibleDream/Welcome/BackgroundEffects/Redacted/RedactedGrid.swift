@@ -16,28 +16,30 @@ struct SizePreferenceKey: PreferenceKey {
 }
 
 struct RedactedGrid: View, @unchecked Sendable {
+    @State private var isGlitched = false
+    @State private var showGlitchedText = true
+    
     var body: some View {
         ZStack {
-            RedactedText()
+            RedactedText() { 
+                isGlitched = $0
+                if isGlitched {
+                    showGlitchedText.toggle()
+                }
+            }
             
             Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                 ForEach(0..<11) { _ in
                     GridRow {
                         ForEach(0..<11) { _ in
-                            ImpossibleText()
-                                .foregroundStyle(.black)
-                                .fixedSize(horizontal: true, vertical: false)
-                                .background(.white)
+                            gridText
                         }
                     }
                 }
                 
                 GridRow {
                     ForEach(0..<5) { _ in
-                        ImpossibleText()
-                            .foregroundStyle(.black)
-                            .fixedSize(horizontal: true, vertical: false)
-                            .background(.white)
+                        gridText
                     }
                     
                     ImpossibleText()
@@ -45,27 +47,29 @@ struct RedactedGrid: View, @unchecked Sendable {
                         .fixedSize(horizontal: true, vertical: false)
                     
                     ForEach(0..<5) { _ in
-                        ImpossibleText()
-                            .foregroundStyle(.black)
-                            .fixedSize(horizontal: true, vertical: false)
-                            .background(.white)
+                        gridText
                     }
                 }
                 
                 ForEach(0..<11) { _ in
                     GridRow {
                         ForEach(0..<11) { _ in
-                            ImpossibleText()
-                                .foregroundStyle(.black)
-                                .fixedSize(horizontal: true, vertical: false)
-                                .background(.white)
+                            gridText
                         }
                     }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .ignoresSafeArea()
+            .opacity(isGlitched ? 1 : 0)
         }
+    }
+    
+    private var gridText: some View {
+        GlitchedText(text: "Impossible", showGlitched: showGlitchedText)
+            .foregroundStyle(.black)
+            .fixedSize(horizontal: true, vertical: false)
+            .background(.white)
     }
 }
 

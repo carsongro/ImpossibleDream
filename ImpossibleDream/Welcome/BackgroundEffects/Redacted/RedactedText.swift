@@ -12,9 +12,11 @@ struct RedactedText: View {
     @State private var redactedOffsetX: CGFloat = .zero
     @State private var showingRedacted = false
     
+    var isGlitched: (Bool) -> Void
+    
     var body: some View {
         ZStack {
-            GlitchedText(
+            GlitchedTextEffect(
                 upperLimit: 5,
                 stages: [
                     0.0: nil,
@@ -22,7 +24,8 @@ struct RedactedText: View {
                     1.6: nil,
                     3.0: 1.0,
                     4.0: nil
-                ]
+                ],
+                isGlitched: isGlitched
             )
             .fixedSize(horizontal: true, vertical: false)
             .foregroundStyle(.red)
@@ -59,6 +62,7 @@ struct RedactedText: View {
             Rectangle()
                 .frame(width: textSize.width, height: textSize.height)
                 .offset(x: -textSize.width)
+                .foregroundStyle(.white)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.white)
@@ -66,7 +70,7 @@ struct RedactedText: View {
 }
 
 #Preview {
-    RedactedText()
+    RedactedText() { _ in }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.white)
         .ignoresSafeArea()
