@@ -8,8 +8,38 @@
 import CoreHaptics
 import Foundation
 
-final class CoreHapticsManager {
+final class CoreHapticsManager: @unchecked Sendable {
+    static let shared = CoreHapticsManager()
+    
+    private init() { }
+    
     private var engine: CHHapticEngine?
+    
+    func lavaInGround() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        var events = [CHHapticEvent]()
+        
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity,value: 0.8)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2)
+        let continuousEvent = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: 2)
+        events.append(continuousEvent)
+        
+        playEvents(events: events)
+    }
+    
+    func lavaEruption() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        var events = [CHHapticEvent]()
+        
+        for i in stride(from: 0, to: 2, by: 0.05) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 2)
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.5)
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
+            events.append(event)
+        }
+        
+        playEvents(events: events)
+    }
     
     func glitchHaptic() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -43,38 +73,29 @@ final class CoreHapticsManager {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        for i in stride(from: 0.33, to: 1, by: 0.33) {
-            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
-            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
-            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
-            events.append(event)
-        }
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 2)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 2)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        events.append(event)
         
         playEvents(events: events)
     }
     
-    func rainbowHapticRising() {
+    func rainbow() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        for i in stride(from: 0.2, to: 0.8, by: 0.18) {
-            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(i))
-            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(i))
+        for i in stride(from: 0.36, to: 1.1, by: 0.18) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i / 2))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i / 2))
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
             events.append(event)
         }
         
-        playEvents(events: events)
-    }
-    
-    func rainbowHapticFalling() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-        var events = [CHHapticEvent]()
-        
-        for i in stride(from: 0, to: 0.6, by: 0.18) {
-            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
-            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
-            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1 + i)
+        for i in stride(from: 0.54, to: 1.325, by: 0.18) {
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i / 2))
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i / 2))
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 1.25 + i)
             events.append(event)
         }
         
@@ -93,7 +114,7 @@ final class CoreHapticsManager {
     
     func prepareHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-
+        
         do {
             engine = try CHHapticEngine()
             try engine?.start()

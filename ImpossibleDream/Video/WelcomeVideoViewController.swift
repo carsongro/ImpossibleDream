@@ -23,7 +23,7 @@ class WelcomeVideoViewController: UIViewController {
         }
     }
     
-    private let hapticsManager = CoreHapticsManager()
+    private let hapticsManager = CoreHapticsManager.shared
     private var timeObserver: Any?
 
     override func viewDidLoad() {
@@ -99,9 +99,9 @@ class WelcomeVideoViewController: UIViewController {
     private func playHaptics(for seconds: Double) {
         let range = (seconds - 0.075)...(seconds + 0.075)
         if range ~= 0 {
-            hapticsManager.rainbowHapticRising()
+//            hapticsManager.rainbowHapticRising()
         } else if range ~= 0.5 {
-            hapticsManager.rainbowHapticFalling()
+//            hapticsManager.rainbowHapticFalling()
         } else if range ~= 4 {
             hapticsManager.outlineHaptic()
         } else if range ~= 7.25 {

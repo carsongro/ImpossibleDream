@@ -17,7 +17,7 @@
 		B84605132BA684BB00505F44 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605122BA684BB00505F44 /* GoalView.swift */; };
 		B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605142BA6885700505F44 /* GoalTaskRowView.swift */; };
 		B84605172BA68BA200505F44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605162BA68BA200505F44 /* Extensions.swift */; };
-		B846051A2BA6982D00505F44 /* Goo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605192BA6982D00505F44 /* Goo.swift */; };
+		B846051A2BA6982D00505F44 /* EruptEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605192BA6982D00505F44 /* EruptEffect.swift */; };
 		B846051E2BA69FBE00505F44 /* RedRectangles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B846051D2BA69FBE00505F44 /* RedRectangles.swift */; };
 		B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */; };
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
@@ -40,7 +40,7 @@
 		B84605122BA684BB00505F44 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		B84605142BA6885700505F44 /* GoalTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTaskRowView.swift; sourceTree = "<group>"; };
 		B84605162BA68BA200505F44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B84605192BA6982D00505F44 /* Goo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goo.swift; sourceTree = "<group>"; };
+		B84605192BA6982D00505F44 /* EruptEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EruptEffect.swift; sourceTree = "<group>"; };
 		B846051D2BA69FBE00505F44 /* RedRectangles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedRectangles.swift; sourceTree = "<group>"; };
 		B8B1E12F2BA3B10E00ECC399 /* ImpossibleDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpossibleDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleDreamApp.swift; sourceTree = "<group>"; };
@@ -87,7 +87,6 @@
 		B818BAA62BA518E600CF433C /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
 				B84605162BA68BA200505F44 /* Extensions.swift */,
 			);
 			path = Other;
@@ -107,7 +106,8 @@
 		B84605182BA697F100505F44 /* BackgroundEffects */ = {
 			isa = PBXGroup;
 			children = (
-				B84605192BA6982D00505F44 /* Goo.swift */,
+				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
+				B84605192BA6982D00505F44 /* EruptEffect.swift */,
 				B846051D2BA69FBE00505F44 /* RedRectangles.swift */,
 			);
 			path = BackgroundEffects;
@@ -254,7 +254,7 @@
 				B818BA9D2BA5179100CF433C /* WelcomeView.swift in Sources */,
 				B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */,
 				B818BAAA2BA53C9800CF433C /* WelcomeCreateGoalView.swift in Sources */,
-				B846051A2BA6982D00505F44 /* Goo.swift in Sources */,
+				B846051A2BA6982D00505F44 /* EruptEffect.swift in Sources */,
 				B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */,
 				B84605172BA68BA200505F44 /* Extensions.swift in Sources */,
 				B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */,
