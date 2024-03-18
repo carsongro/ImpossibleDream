@@ -41,25 +41,11 @@ final class CoreHapticsManager: @unchecked Sendable {
         playEvents(events: events)
     }
     
-    func glitchHaptic() {
+    func glitchHaptic(duration: Double) {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
-        for i in stride(from: 0, to: 0.15, by: 0.02) {
-            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
-            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
-            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)
-            events.append(event)
-        }
-        
-        playEvents(events: events)
-    }
-    
-    func glitchHapticLong() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-        var events = [CHHapticEvent]()
-        
-        for i in stride(from: 0, to: 0.5, by: 0.03) {
+        for i in stride(from: 0, to: duration, by: 0.03) {
             let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
             let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i)

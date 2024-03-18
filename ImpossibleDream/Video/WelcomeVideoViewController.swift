@@ -103,11 +103,11 @@ class WelcomeVideoViewController: UIViewController {
         } else if range ~= 0.5 {
 //            hapticsManager.rainbowHapticFalling()
         } else if range ~= 4 {
-            hapticsManager.outlineHaptic()
+//            hapticsManager.outlineHaptic()
         } else if range ~= 7.25 {
-            hapticsManager.glitchHapticLong()
+//            hapticsManager.glitchHapticLong()
         } else if range ~= 9.0 {
-            hapticsManager.glitchHaptic()
+//            hapticsManager.glitchHaptic()
         }
     }
 }
