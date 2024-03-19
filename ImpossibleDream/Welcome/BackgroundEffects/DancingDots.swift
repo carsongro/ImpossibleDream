@@ -92,7 +92,6 @@ struct DancingDotsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .scaleEffect(isAnimating ? 1.1 : 1)
             .shadow(radius: isAnimating ? 3 : 0, y: isAnimating ? 3 : 0)
-            .sensoryFeedback(.levelChange, trigger: isAnimating)
             .background {
                 LazyVGrid(columns: columns) {
                     ForEach(tracker.bigDots) { bigDot in
@@ -115,11 +114,15 @@ struct DancingDotsView: View {
                 .ignoresSafeArea()
             }
             .onAppear {
+                CoreHapticsManager.shared.startEngine()
+                
                 withAnimation(.smooth(duration: 3)) {
+                    CoreHapticsManager.shared.thunk()
                     isAnimating = true
                     tracker.randomizePositions()
                 } completion: {
                     withAnimation {
+                        CoreHapticsManager.shared.thunk()
                         tracker.resetPositions()
                         isAnimating = false
                     }

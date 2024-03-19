@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RainbowGridView: View, @unchecked Sendable {
+    @State private var rainbowOpacity = 0.0
+    
     var body: some View {
         ZStack {
             gridView
@@ -41,6 +43,12 @@ struct RainbowGridView: View, @unchecked Sendable {
         }
         .background(.black)
         .ignoresSafeArea()
+        .onAppear {
+            Task {
+                try await Task.sleep(nanoseconds: 0_265_000_000)
+                rainbowOpacity = 1.0
+            }
+        }
     }
     
     var rainbow: some View {
@@ -50,6 +58,7 @@ struct RainbowGridView: View, @unchecked Sendable {
             .symbolRenderingMode(.multicolor)
             .symbolEffect(.variableColor.reversing.hideInactiveLayers)
             .frame(width: 100, height: 90)
+            .opacity(rainbowOpacity)
     }
 }
 

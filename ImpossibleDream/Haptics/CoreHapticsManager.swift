@@ -83,7 +83,7 @@ final class CoreHapticsManager: @unchecked Sendable {
         playEvents(events: events)
     }
     
-    func outlineHaptic() {
+    func thunk() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         var events = [CHHapticEvent]()
         
@@ -123,6 +123,16 @@ final class CoreHapticsManager: @unchecked Sendable {
             try player?.start(atTime: 0)
         } catch {
             print("Failed to play pattern: \(error.localizedDescription).")
+        }
+    }
+    
+    func startEngine() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        
+        do {
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
         }
     }
     

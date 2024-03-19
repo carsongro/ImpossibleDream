@@ -150,7 +150,7 @@ extension WelcomeVideoViewController {
     }
     
     @objc private func didBecomeActive() {
-        hapticsManager.prepareHaptics()
+        hapticsManager.startEngine()
     }
 }
 

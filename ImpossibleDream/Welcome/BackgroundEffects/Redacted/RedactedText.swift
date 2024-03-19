@@ -46,7 +46,7 @@ struct RedactedText: View {
                 }
                 
                 Task {
-                    try await Task.sleep(nanoseconds: 1_000_000_000)
+                    try await Task.sleep(nanoseconds: 0_500_000_000)
                     showingRedacted = true
                     withAnimation(.linear(duration: 5)) {
                         redactedOffsetX = 0
@@ -66,8 +66,6 @@ struct RedactedText: View {
                 .offset(x: -textSize.width)
                 .foregroundStyle(.white)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
     }
 }
 

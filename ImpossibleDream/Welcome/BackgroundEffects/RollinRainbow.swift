@@ -31,7 +31,7 @@ struct RollinRainbowView: View {
             }
         }
         .onAppear {
-            CoreHapticsManager.shared.prepareHaptics()
+            CoreHapticsManager.shared.startEngine()
             scaleFactor = 3
             CoreHapticsManager.shared.rollinRainbow()
         }

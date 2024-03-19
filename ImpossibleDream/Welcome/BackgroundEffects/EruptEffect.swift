@@ -52,11 +52,7 @@ class EruptParticleSystem {
 
 struct EruptEffect: View {
     @State private var particleSystem = EruptParticleSystem()
-    @State private var currentTime = 0
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    private var showEruption: Bool { currentTime > 1 }
+    @State private var showEruption = false
     
     var body: some View {
         ZStack {
@@ -69,12 +65,12 @@ struct EruptEffect: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .onAppear(perform: CoreHapticsManager.shared.prepareHaptics)
-        .onReceive(timer) {
-            currentTime = Int($0.timeIntervalSinceReferenceDate) % 4
-            if currentTime == 0 {
-                CoreHapticsManager.shared.lavaInGround()
-            } else if currentTime == 2 {
+        .onAppear {
+            CoreHapticsManager.shared.startEngine()
+            CoreHapticsManager.shared.lavaInGround()
+            Task {
+                try await Task.sleep(nanoseconds: 2_000_000_000)
+                showEruption = true
                 CoreHapticsManager.shared.lavaEruption()
             }
         }

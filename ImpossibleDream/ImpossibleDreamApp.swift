@@ -13,6 +13,7 @@ struct ImpossibleDreamApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear(perform: CoreHapticsManager.shared.prepareHaptics)
         }
         .modelContainer(for: Goal.self)
     }

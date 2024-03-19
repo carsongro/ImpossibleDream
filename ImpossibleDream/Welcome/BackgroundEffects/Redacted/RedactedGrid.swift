@@ -20,14 +20,14 @@ struct RedactedGrid: View, @unchecked Sendable {
     @State private var showGlitchedText = true
     
     var body: some View {
-        ZStack {
-            RedactedText() { 
-                isGlitched = $0
-                if isGlitched {
-                    showGlitchedText.toggle()
-                }
+        RedactedText() {
+            isGlitched = $0
+            if isGlitched {
+                showGlitchedText.toggle()
             }
-            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay {
             Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                 ForEach(0..<11) { _ in
                     GridRow {
@@ -42,7 +42,7 @@ struct RedactedGrid: View, @unchecked Sendable {
                         gridText
                     }
                     
-                    ImpossibleText()
+                    GlitchedText(text: "Impossible", showGlitched: showGlitchedText)
                         .foregroundStyle(.clear)
                         .fixedSize(horizontal: true, vertical: false)
                     
@@ -59,10 +59,10 @@ struct RedactedGrid: View, @unchecked Sendable {
                     }
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .ignoresSafeArea()
             .opacity(isGlitched ? 1 : 0)
         }
+        .ignoresSafeArea()
+        .background(.white)
     }
     
     private var gridText: some View {

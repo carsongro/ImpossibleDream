@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 struct RedRectangles: View {
-    let timer = Timer.publish(every: 0.12, on: .main, in: .common).autoconnect()
+    var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     @State private var rectNum = 0
     
@@ -25,7 +26,7 @@ struct RedRectangles: View {
             ImpossibleText()
                 .foregroundStyle(.black)
         }
-        .onAppear(perform: CoreHapticsManager.shared.prepareHaptics)
+        .onAppear(perform: CoreHapticsManager.shared.startEngine)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.white)
         .onReceive(timer) { input in
@@ -33,7 +34,7 @@ struct RedRectangles: View {
         }
         .onChange(of: rectNum) { oldValue, newValue in
             if rectNum == 0 {
-                CoreHapticsManager.shared.outlineHaptic()
+                CoreHapticsManager.shared.thunk()
             }
         }
     }
@@ -76,5 +77,5 @@ struct RedRectangles: View {
 }
 
 #Preview {
-    RedRectangles()
+    RedRectangles(timer: Timer.publish(every: 0.1, on: .main, in: .common).autoconnect())
 }

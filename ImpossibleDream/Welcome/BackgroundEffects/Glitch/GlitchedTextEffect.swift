@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct GlitchedTextEffect: View {
     @State private var showGlitched: Bool
     @State private var currentSeconds = 0.0
     
-    let myTimer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     let hapticsEnabled: Bool
     let text: String
     let upperLimit: Double
@@ -23,10 +24,11 @@ struct GlitchedTextEffect: View {
     ///   - text: A `String` that will be displayed. Defaults to "Impossible"
     ///   - upperLimit: A `Double` that determines when the glitch animation resets. Defaults to 2.0.
     ///   - stages: A dictionary where key is the timestamp and the value is the duration of the haptics starting at the timestamp.
-    ///   Keys must be multiples of 0.2. Nil means no haptics will occur.
+    ///   Keys must be multiples of 0.1. Nil means no haptics will occur.
     ///   - hapticsEnabled: A `Bool` indicating whether or not haptics will be played when glitching. Defaults to true
     ///   - isGlitched: A closure that is called when the state changes between showing glitched or not.
     init(
+        timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(),
         hapticsEnabled: Bool = true,
         text: String = "Impossible",
         upperLimit: Double = 2.0,
@@ -38,6 +40,7 @@ struct GlitchedTextEffect: View {
         ],
         isGlitched: ((Bool) -> Void)? = nil
     ) {
+        self.timer = timer
         self.hapticsEnabled = hapticsEnabled
         self.text = text
         self.upperLimit = upperLimit
@@ -48,9 +51,9 @@ struct GlitchedTextEffect: View {
     
     var body: some View {
         GlitchedText(text: text, showGlitched: showGlitched)
-            .onAppear(perform: CoreHapticsManager.shared.prepareHaptics)
+            .onAppear(perform: CoreHapticsManager.shared.startEngine)
             .onReceive(timer) { _ in
-                currentSeconds = rounded(currentSeconds) == upperLimit ? 0 : currentSeconds + 0.2
+                currentSeconds = rounded(currentSeconds) == upperLimit ? 0 : currentSeconds + 0.1
                 
                 for (timestamp, duration) in stages {
                     if rounded(currentSeconds) == timestamp {
