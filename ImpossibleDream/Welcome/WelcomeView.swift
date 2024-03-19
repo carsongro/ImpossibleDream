@@ -60,8 +60,12 @@ struct WelcomeView: View {
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)
         .background {
-            DancingDotsView()
-//                .blur(radius: playingVideo ? 0 : 20)
+            if playingVideo{
+                WelcomeBackgroundView()
+            } else {
+                Color.clear
+                    .gradientBackground()
+            }
         }
         .ignoresSafeArea()
         .onChange(of: welcomePosition) {

@@ -17,6 +17,7 @@ struct RainbowGridView: View, @unchecked Sendable {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onAppear(perform: CoreHapticsManager.shared.rainbow)
+        .drawingGroup()
     }
     
     @ViewBuilder
@@ -48,7 +49,7 @@ struct RainbowGridView: View, @unchecked Sendable {
             .aspectRatio(contentMode: .fit)
             .symbolRenderingMode(.multicolor)
             .symbolEffect(.variableColor.reversing.hideInactiveLayers)
-            .frame(width: 100, height: 100)
+            .frame(width: 100, height: 90)
     }
 }
 

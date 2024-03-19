@@ -32,6 +32,7 @@
 		B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */; };
 		B8B9116D2BA8FF6F0059A40D /* RollinRainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */; };
 		B8B9116F2BA901210059A40D /* DancingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9116E2BA901210059A40D /* DancingDots.swift */; };
+		B8B911752BA940BF0059A40D /* WelcomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */; };
 		B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */; };
 		B8DE92012BA412F9000DB1B4 /* CoreHapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE92002BA412F9000DB1B4 /* CoreHapticsManager.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideo.swift; sourceTree = "<group>"; };
 		B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollinRainbow.swift; sourceTree = "<group>"; };
 		B8B9116E2BA901210059A40D /* DancingDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancingDots.swift; sourceTree = "<group>"; };
+		B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackgroundView.swift; sourceTree = "<group>"; };
 		B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowGridView.swift; sourceTree = "<group>"; };
 		B8DE92002BA412F9000DB1B4 /* CoreHapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHapticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				B8B9116E2BA901210059A40D /* DancingDots.swift */,
 				B84605292BA7FBD400505F44 /* Glitch */,
 				B846052A2BA7FBDD00505F44 /* Redacted */,
+				B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */,
 			);
 			path = BackgroundEffects;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				B846051A2BA6982D00505F44 /* EruptEffect.swift in Sources */,
 				B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */,
 				B84605172BA68BA200505F44 /* Extensions.swift in Sources */,
+				B8B911752BA940BF0059A40D /* WelcomeBackgroundView.swift in Sources */,
 				B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */,
 				B84605132BA684BB00505F44 /* GoalView.swift in Sources */,
 				B8DE92012BA412F9000DB1B4 /* CoreHapticsManager.swift in Sources */,

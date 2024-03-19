@@ -11,7 +11,7 @@ struct GlitchedTextEffect: View {
     @State private var showGlitched: Bool
     @State private var currentSeconds = 0.0
     
-    let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    let myTimer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     let hapticsEnabled: Bool
     let text: String
     let upperLimit: Double
@@ -31,8 +31,9 @@ struct GlitchedTextEffect: View {
         text: String = "Impossible",
         upperLimit: Double = 2.0,
         stages: [Double: Double?] = [
-            0.0: 0.6,
-            0.6: nil,
+            0.0: nil,
+            0.2: 0.6,
+            0.8: nil,
             1.8: 0.2
         ],
         isGlitched: ((Bool) -> Void)? = nil

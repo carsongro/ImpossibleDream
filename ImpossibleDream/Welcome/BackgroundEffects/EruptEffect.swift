@@ -62,7 +62,6 @@ struct EruptEffect: View {
         ZStack {
             lavaView
             
-            // TODO: Add tilt
             if showEruption {
                 ImpossibleText()
                     .foregroundStyle(.black)
