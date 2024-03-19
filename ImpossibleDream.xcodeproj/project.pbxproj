@@ -30,6 +30,9 @@
 		B8B1E13B2BA3B10F00ECC399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */; };
 		B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */; };
 		B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */; };
+		B8B9116D2BA8FF6F0059A40D /* RollinRainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */; };
+		B8B9116F2BA901210059A40D /* DancingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9116E2BA901210059A40D /* DancingDots.swift */; };
+		B8B911712BA901320059A40D /* PlayResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B911702BA901320059A40D /* PlayResetButton.swift */; };
 		B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */; };
 		B8DE92012BA412F9000DB1B4 /* CoreHapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE92002BA412F9000DB1B4 /* CoreHapticsManager.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,9 @@
 		B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideoViewController.swift; sourceTree = "<group>"; };
 		B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideo.swift; sourceTree = "<group>"; };
+		B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollinRainbow.swift; sourceTree = "<group>"; };
+		B8B9116E2BA901210059A40D /* DancingDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancingDots.swift; sourceTree = "<group>"; };
+		B8B911702BA901320059A40D /* PlayResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayResetButton.swift; sourceTree = "<group>"; };
 		B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowGridView.swift; sourceTree = "<group>"; };
 		B8DE92002BA412F9000DB1B4 /* CoreHapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHapticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +126,9 @@
 				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
 				B84605192BA6982D00505F44 /* EruptEffect.swift */,
 				B846051D2BA69FBE00505F44 /* RedRectangles.swift */,
+				B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */,
+				B8B9116E2BA901210059A40D /* DancingDots.swift */,
+				B8B911702BA901320059A40D /* PlayResetButton.swift */,
 				B84605292BA7FBD400505F44 /* Glitch */,
 				B846052A2BA7FBDD00505F44 /* Redacted */,
 			);
@@ -277,13 +286,16 @@
 			files = (
 				B818BA992BA4FE0E00CF433C /* Goal.swift in Sources */,
 				B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */,
+				B8B9116D2BA8FF6F0059A40D /* RollinRainbow.swift in Sources */,
 				B84605202BA7CBBF00505F44 /* GlitchedTextEffect.swift in Sources */,
 				B818BA9B2BA4FE1600CF433C /* GoalTask.swift in Sources */,
 				B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */,
 				B846051E2BA69FBE00505F44 /* RedRectangles.swift in Sources */,
+				B8B911712BA901320059A40D /* PlayResetButton.swift in Sources */,
 				B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */,
 				B84605242BA7F34600505F44 /* ImpossibleText.swift in Sources */,
 				B84605282BA7FB2800505F44 /* GlitchedText.swift in Sources */,
+				B8B9116F2BA901210059A40D /* DancingDots.swift in Sources */,
 				B84605112BA6831800505F44 /* GoalNavigationStack.swift in Sources */,
 				B818BA9D2BA5179100CF433C /* WelcomeView.swift in Sources */,
 				B8DE91FE2BA40605000DB1B4 /* RainbowGridView.swift in Sources */,

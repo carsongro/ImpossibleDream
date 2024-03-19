@@ -60,8 +60,8 @@ struct WelcomeView: View {
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)
         .background {
-            RedactedGrid()
-                .blur(radius: playingVideo ? 0 : 20)
+//            RollinRainbowView()
+//                .blur(radius: playingVideo ? 0 : 20)
         }
         .ignoresSafeArea()
         .onChange(of: welcomePosition) {

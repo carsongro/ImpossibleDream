@@ -111,7 +111,6 @@ struct EruptEffect: View {
         } else {
             ImpossibleText()
                 .foregroundStyle(.black)
-                .opacity(1)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }

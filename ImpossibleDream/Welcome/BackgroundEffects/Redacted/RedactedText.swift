@@ -20,10 +20,12 @@ struct RedactedText: View {
                 upperLimit: 5,
                 stages: [
                     0.0: nil,
-                    1.0: 0.6,
-                    1.6: nil,
-                    3.0: 1.0,
-                    4.0: nil
+                    1.0: 0.2,
+                    1.2: nil,
+                    3.0: 0.8,
+                    3.8: nil,
+                    4.4: 0.2,
+                    4.6: nil
                 ],
                 isGlitched: isGlitched
             )
