@@ -32,18 +32,18 @@ class BigDot: Identifiable {
     
     func randomizePositions() {
         for dot in smallDots {
-            dot.offset = CGSize(width: Double.random(in: -120...120), height: Double.random(in: -120...120))
+            dot.offset = CGSize(width: Double.random(in: -120...120), height: Double.random(in: -200...200))
             dot.color = DotTracker.randomColor
         }
     }
- 
+    
     func resetPositions() {
         for dot in smallDots {
             dot.offset = .zero
             dot.color = .primary
         }
     }
-
+    
 }
 
 @Observable
@@ -56,14 +56,14 @@ class DotTracker {
     }
     
     init() {
-        for _ in 0..<100 {
+        for _ in 0..<50 {
             bigDots.append(BigDot())
         }
     }
     
     func randomizePositions() {
         for bigDot in bigDots {
-            bigDot.offset = CGSize(width: Double.random(in: -50...50), height: Double.random(in: -50...50))
+            bigDot.offset = CGSize(width: Double.random(in: -50...50), height: Double.random(in: -100...100))
             bigDot.scale = 2.5
             bigDot.color = DotTracker.randomColor
             bigDot.randomizePositions()
@@ -78,68 +78,53 @@ class DotTracker {
             bigDot.resetPositions()
         }
     }
-
+    
 }
 struct DancingDotsView: View {
-    private var columns = Array(repeating: GridItem(.flexible()), count: 20)
+    private var columns = Array(repeating: GridItem(.flexible()), count: 10)
     @State var tracker = DotTracker()
     @State private var isAnimating = false
-
+    @State private var textFrame: CGRect = .zero
+    
     var body: some View {
-        VStack {
-            
-            Spacer()
-            
-            LazyVGrid(columns: columns, spacing: 0) {
-                ForEach(tracker.bigDots) { bigDot in
-                    ZStack {
-                        Circle()
-                            .offset(bigDot.offset)
-                            .foregroundColor(bigDot.color)
-                            .scaleEffect(bigDot.scale)
-                        ForEach(bigDot.smallDots) { smallDot in
+        ImpossibleText()
+            .foregroundStyle(.black)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scaleEffect(isAnimating ? 1.1 : 1)
+            .shadow(radius: isAnimating ? 3 : 0, y: isAnimating ? 3 : 0)
+            .sensoryFeedback(.levelChange, trigger: isAnimating)
+            .background {
+                LazyVGrid(columns: columns) {
+                    ForEach(tracker.bigDots) { bigDot in
+                        ZStack {
                             Circle()
-                                .offset(smallDot.offset)
-                                .foregroundColor(smallDot.color)
+                                .offset(bigDot.offset)
+                                .foregroundColor(bigDot.color)
+                                .scaleEffect(bigDot.scale)
+                            ForEach(bigDot.smallDots) { smallDot in
+                                Circle()
+                                    .offset(smallDot.offset)
+                                    .foregroundColor(smallDot.color)
+                            }
                         }
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.white)
+                .drawingGroup()
+                .ignoresSafeArea()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .drawingGroup()
-            .sensoryFeedback(.levelChange, trigger: isAnimating)
-            .mask(mask)
-            
-            Spacer()
-            
-            PlayResetButton(animating: $isAnimating) {
-                if isAnimating {
-                    withAnimation(.smooth(duration: 3)) {
-                        tracker.randomizePositions()
-                    } completion: {
-                        withAnimation {
-                            tracker.resetPositions()
-                            isAnimating = false
-                        }
-                    }
-                } else {
+            .onAppear {
+                withAnimation(.smooth(duration: 3)) {
+                    isAnimating = true
+                    tracker.randomizePositions()
+                } completion: {
                     withAnimation {
                         tracker.resetPositions()
+                        isAnimating = false
                     }
                 }
             }
-        }
-    }
-    
-    @ViewBuilder
-    private var mask: some View {
-        if isAnimating {
-            Rectangle()
-        } else {
-            ImpossibleText()
-                .foregroundStyle(.black)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
     }
 }
 
