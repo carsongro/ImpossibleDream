@@ -11,9 +11,10 @@ struct ImpossibleText: View {
     @State private var motion = MotionManager.shared
     
     var body: some View {
-        Text("Impossible")
+        Text("Dream")
             .font(.system(size: 60))
             .fontWeight(.bold)
+            .fixedSize(horizontal: true, vertical: true)
             .offset(x: motion.x * 14, y: motion.y * 14)
             .rotation3DEffect(.degrees(motion.x * 3), axis: (x: 0.0, y: 1.0, z: 0.0))
             .rotation3DEffect(.degrees(motion.y * 3), axis: (x: -1.0, y: 0.0, z: 0.0))

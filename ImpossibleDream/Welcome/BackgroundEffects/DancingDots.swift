@@ -91,7 +91,7 @@ struct DancingDotsView: View {
             .foregroundStyle(.black)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .scaleEffect(isAnimating ? 1.1 : 1)
-            .shadow(color: Color(.sRGBLinear, white: 0, opacity: isAnimating ? 0.33 : 0), radius: isAnimating ? 3 : 0, y: isAnimating ? 3 : 0)
+            .shadow(color: Color(.sRGBLinear, white: 0, opacity: isAnimating ? 0.33 : 0), radius: isAnimating ? 3 : 0, y: isAnimating ? 3 : 0) //TODO: UPDATE THIS FOR MOTION
             .background {
                 LazyVGrid(columns: columns) {
                     ForEach(tracker.bigDots) { bigDot in
@@ -121,7 +121,7 @@ struct DancingDotsView: View {
                     isAnimating = true
                     tracker.randomizePositions()
                 } completion: {
-                    withAnimation(.snappy(duration: 0.2)) {
+                    withAnimation(.snappy(duration: 0.45)) {
                         CoreHapticsManager.shared.thunk()
                         tracker.resetPositions()
                         isAnimating = false
