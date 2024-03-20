@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B818BA942BA4B67200CF433C /* welcome.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B818BA932BA4B67200CF433C /* welcome.mp4 */; };
 		B818BA992BA4FE0E00CF433C /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BA982BA4FE0E00CF433C /* Goal.swift */; };
 		B818BA9B2BA4FE1600CF433C /* GoalTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BA9A2BA4FE1600CF433C /* GoalTask.swift */; };
 		B818BA9D2BA5179100CF433C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818BA9C2BA5179100CF433C /* WelcomeView.swift */; };
@@ -18,7 +17,6 @@
 		B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605142BA6885700505F44 /* GoalTaskRowView.swift */; };
 		B84605172BA68BA200505F44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605162BA68BA200505F44 /* Extensions.swift */; };
 		B846051A2BA6982D00505F44 /* EruptEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605192BA6982D00505F44 /* EruptEffect.swift */; };
-		B846051E2BA69FBE00505F44 /* RedRectangles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B846051D2BA69FBE00505F44 /* RedRectangles.swift */; };
 		B84605202BA7CBBF00505F44 /* GlitchedTextEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B846051F2BA7CBBF00505F44 /* GlitchedTextEffect.swift */; };
 		B84605222BA7D66200505F44 /* RedactedGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605212BA7D66200505F44 /* RedactedGrid.swift */; };
 		B84605242BA7F34600505F44 /* ImpossibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605232BA7F34600505F44 /* ImpossibleText.swift */; };
@@ -29,8 +27,6 @@
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
 		B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */; };
 		B8B1E13B2BA3B10F00ECC399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */; };
-		B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */; };
-		B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */; };
 		B8B9116D2BA8FF6F0059A40D /* RollinRainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */; };
 		B8B9116F2BA901210059A40D /* DancingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9116E2BA901210059A40D /* DancingDots.swift */; };
 		B8B911752BA940BF0059A40D /* WelcomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */; };
@@ -39,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B818BA932BA4B67200CF433C /* welcome.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = welcome.mp4; sourceTree = "<group>"; };
 		B818BA982BA4FE0E00CF433C /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		B818BA9A2BA4FE1600CF433C /* GoalTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTask.swift; sourceTree = "<group>"; };
 		B818BA9C2BA5179100CF433C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -50,7 +45,6 @@
 		B84605142BA6885700505F44 /* GoalTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTaskRowView.swift; sourceTree = "<group>"; };
 		B84605162BA68BA200505F44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B84605192BA6982D00505F44 /* EruptEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EruptEffect.swift; sourceTree = "<group>"; };
-		B846051D2BA69FBE00505F44 /* RedRectangles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedRectangles.swift; sourceTree = "<group>"; };
 		B846051F2BA7CBBF00505F44 /* GlitchedTextEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlitchedTextEffect.swift; sourceTree = "<group>"; };
 		B84605212BA7D66200505F44 /* RedactedGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedGrid.swift; sourceTree = "<group>"; };
 		B84605232BA7F34600505F44 /* ImpossibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleText.swift; sourceTree = "<group>"; };
@@ -63,8 +57,6 @@
 		B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8B1E1382BA3B10F00ECC399 /* ImpossibleDream.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImpossibleDream.entitlements; sourceTree = "<group>"; };
 		B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideoViewController.swift; sourceTree = "<group>"; };
-		B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVideo.swift; sourceTree = "<group>"; };
 		B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollinRainbow.swift; sourceTree = "<group>"; };
 		B8B9116E2BA901210059A40D /* DancingDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancingDots.swift; sourceTree = "<group>"; };
 		B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackgroundView.swift; sourceTree = "<group>"; };
@@ -124,7 +116,7 @@
 		B84605182BA697F100505F44 /* BackgroundEffects */ = {
 			isa = PBXGroup;
 			children = (
-				B846051D2BA69FBE00505F44 /* RedRectangles.swift */,
+				B88BBDC52BAA5BBD006B645F /* MotionManager.swift */,
 				B84605232BA7F34600505F44 /* ImpossibleText.swift */,
 				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
 				B84605192BA6982D00505F44 /* EruptEffect.swift */,
@@ -133,7 +125,6 @@
 				B84605292BA7FBD400505F44 /* Glitch */,
 				B846052A2BA7FBDD00505F44 /* Redacted */,
 				B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */,
-				B88BBDC52BAA5BBD006B645F /* MotionManager.swift */,
 			);
 			path = BackgroundEffects;
 			sourceTree = "<group>";
@@ -182,7 +173,6 @@
 				B8B1E1342BA3B10E00ECC399 /* ContentView.swift */,
 				B846050F2BA6831000505F44 /* Goal */,
 				B818BAA22BA5189800CF433C /* Welcome */,
-				B8B1E1462BA3D09A00ECC399 /* Video */,
 				B8DE91FF2BA412EE000DB1B4 /* Haptics */,
 				B818BAA62BA518E600CF433C /* Other */,
 				B818BA952BA4F7B600CF433C /* Model */,
@@ -196,16 +186,6 @@
 				B8B1E13A2BA3B10F00ECC399 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		B8B1E1462BA3D09A00ECC399 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				B818BA932BA4B67200CF433C /* welcome.mp4 */,
-				B8B1E1472BA3D0A900ECC399 /* WelcomeVideo.swift */,
-				B8B1E1412BA3CE7200ECC399 /* WelcomeVideoViewController.swift */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		B8DE91FF2BA412EE000DB1B4 /* Haptics */ = {
@@ -274,7 +254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B818BA942BA4B67200CF433C /* welcome.mp4 in Resources */,
 				B8B1E13B2BA3B10F00ECC399 /* Preview Assets.xcassets in Resources */,
 				B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */,
 			);
@@ -293,9 +272,6 @@
 				B8B9116D2BA8FF6F0059A40D /* RollinRainbow.swift in Sources */,
 				B84605202BA7CBBF00505F44 /* GlitchedTextEffect.swift in Sources */,
 				B818BA9B2BA4FE1600CF433C /* GoalTask.swift in Sources */,
-				B8B1E1482BA3D0A900ECC399 /* WelcomeVideo.swift in Sources */,
-				B846051E2BA69FBE00505F44 /* RedRectangles.swift in Sources */,
-				B8B1E1422BA3CE7200ECC399 /* WelcomeVideoViewController.swift in Sources */,
 				B84605242BA7F34600505F44 /* ImpossibleText.swift in Sources */,
 				B84605282BA7FB2800505F44 /* GlitchedText.swift in Sources */,
 				B8B9116F2BA901210059A40D /* DancingDots.swift in Sources */,
