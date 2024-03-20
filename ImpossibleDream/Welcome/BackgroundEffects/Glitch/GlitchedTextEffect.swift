@@ -14,7 +14,6 @@ struct GlitchedTextEffect: View {
     
     let timer: Publishers.Autoconnect<Timer.TimerPublisher>
     let hapticsEnabled: Bool
-    let text: String
     let upperLimit: Double
     let stages: [Double: Double?]
     let isGlitched: ((Bool) -> Void)?
@@ -30,7 +29,6 @@ struct GlitchedTextEffect: View {
     init(
         timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(),
         hapticsEnabled: Bool = true,
-        text: String = "Impossible",
         upperLimit: Double = 2.0,
         stages: [Double: Double?] = [
             0.0: nil,
@@ -42,7 +40,6 @@ struct GlitchedTextEffect: View {
     ) {
         self.timer = timer
         self.hapticsEnabled = hapticsEnabled
-        self.text = text
         self.upperLimit = upperLimit
         self.stages = stages
         _showGlitched = State(initialValue: stages[0.0, default: nil] != nil)
@@ -50,7 +47,7 @@ struct GlitchedTextEffect: View {
     }
     
     var body: some View {
-        GlitchedText(text: text, showGlitched: showGlitched)
+        GlitchedText(showGlitched: showGlitched)
             .onAppear(perform: CoreHapticsManager.shared.startEngine)
             .onReceive(timer) { _ in
                 currentSeconds = rounded(currentSeconds) == upperLimit ? 0 : currentSeconds + 0.1

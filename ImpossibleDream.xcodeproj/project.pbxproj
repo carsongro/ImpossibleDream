@@ -24,6 +24,7 @@
 		B84605242BA7F34600505F44 /* ImpossibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605232BA7F34600505F44 /* ImpossibleText.swift */; };
 		B84605262BA7F74100505F44 /* RedactedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605252BA7F74100505F44 /* RedactedText.swift */; };
 		B84605282BA7FB2800505F44 /* GlitchedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84605272BA7FB2800505F44 /* GlitchedText.swift */; };
+		B88BBDC62BAA5BBD006B645F /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BBDC52BAA5BBD006B645F /* MotionManager.swift */; };
 		B8B1E1332BA3B10E00ECC399 /* ImpossibleDreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */; };
 		B8B1E1352BA3B10E00ECC399 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1E1342BA3B10E00ECC399 /* ContentView.swift */; };
 		B8B1E1372BA3B10F00ECC399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B1E1362BA3B10F00ECC399 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		B84605232BA7F34600505F44 /* ImpossibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleText.swift; sourceTree = "<group>"; };
 		B84605252BA7F74100505F44 /* RedactedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedText.swift; sourceTree = "<group>"; };
 		B84605272BA7FB2800505F44 /* GlitchedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlitchedText.swift; sourceTree = "<group>"; };
+		B88BBDC52BAA5BBD006B645F /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		B8B1E12F2BA3B10E00ECC399 /* ImpossibleDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpossibleDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B1E1322BA3B10E00ECC399 /* ImpossibleDreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpossibleDreamApp.swift; sourceTree = "<group>"; };
 		B8B1E1342BA3B10E00ECC399 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,15 +124,16 @@
 		B84605182BA697F100505F44 /* BackgroundEffects */ = {
 			isa = PBXGroup;
 			children = (
+				B846051D2BA69FBE00505F44 /* RedRectangles.swift */,
 				B84605232BA7F34600505F44 /* ImpossibleText.swift */,
 				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
 				B84605192BA6982D00505F44 /* EruptEffect.swift */,
-				B846051D2BA69FBE00505F44 /* RedRectangles.swift */,
 				B8B9116C2BA8FF6F0059A40D /* RollinRainbow.swift */,
 				B8B9116E2BA901210059A40D /* DancingDots.swift */,
 				B84605292BA7FBD400505F44 /* Glitch */,
 				B846052A2BA7FBDD00505F44 /* Redacted */,
 				B8B911742BA940BF0059A40D /* WelcomeBackgroundView.swift */,
+				B88BBDC52BAA5BBD006B645F /* MotionManager.swift */,
 			);
 			path = BackgroundEffects;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B818BA992BA4FE0E00CF433C /* Goal.swift in Sources */,
+				B88BBDC62BAA5BBD006B645F /* MotionManager.swift in Sources */,
 				B84605152BA6885700505F44 /* GoalTaskRowView.swift in Sources */,
 				B8B9116D2BA8FF6F0059A40D /* RollinRainbow.swift in Sources */,
 				B84605202BA7CBBF00505F44 /* GlitchedTextEffect.swift in Sources */,

@@ -21,7 +21,7 @@ class EruptParticle {
         self.ySpeed = ySpeed
     }
 }
-
+// TODO: Update for large screens
 class EruptParticleSystem {
     var particles = [EruptParticle]()
     var lastUpdate = Date.now.timeIntervalSinceReferenceDate

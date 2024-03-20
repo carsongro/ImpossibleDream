@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GlitchedText: View {
-    var text: String
     var showGlitched: Bool
     
     @State private var textSize: CGSize = .zero
@@ -17,9 +16,7 @@ struct GlitchedText: View {
         if showGlitched {
             glitchedText
         } else {
-            Text(text)
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            ImpossibleText()
                 .background(
                     GeometryReader { proxy in
                         Color.clear
@@ -35,16 +32,12 @@ struct GlitchedText: View {
     
     private var glitchedText: some View {
         VStack(spacing: 0) {
-            Text(text)
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            ImpossibleText()
                 .frame(height: textSize.height / 2, alignment: .top)
                 .clipped()
                 .offset(x: 1, y: 1)
             
-            Text(text)
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            ImpossibleText()
                 .frame(height: textSize.height / 2, alignment: .bottom)
                 .clipped()
                 .offset(x: -3)
@@ -54,5 +47,5 @@ struct GlitchedText: View {
 }
 
 #Preview {
-    GlitchedText(text: "Impossible", showGlitched: true)
+    GlitchedText(showGlitched: true)
 }

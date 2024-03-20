@@ -42,7 +42,7 @@ struct RedactedGrid: View, @unchecked Sendable {
                         gridText
                     }
                     
-                    GlitchedText(text: "Impossible", showGlitched: showGlitchedText)
+                    GlitchedText(showGlitched: showGlitchedText)
                         .foregroundStyle(.clear)
                         .fixedSize(horizontal: true, vertical: false)
                     
@@ -66,7 +66,7 @@ struct RedactedGrid: View, @unchecked Sendable {
     }
     
     private var gridText: some View {
-        GlitchedText(text: "Impossible", showGlitched: showGlitchedText)
+        GlitchedText(showGlitched: showGlitchedText)
             .foregroundStyle(.black)
             .fixedSize(horizontal: true, vertical: false)
             .background(.white)
