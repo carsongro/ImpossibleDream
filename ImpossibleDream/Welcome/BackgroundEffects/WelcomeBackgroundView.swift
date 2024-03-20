@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeBackgroundView: View {
-    let upperLimit = 21.2
+    let upperLimit = 21.0
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     @State private var currentSeconds = 0.0
@@ -19,13 +19,13 @@ struct WelcomeBackgroundView: View {
                 RollinRainbowView()
             } else if 3.4..<9.0 ~= currentSeconds {
                 RedactedGrid()
-            } else if 9.0..<12.6 ~= currentSeconds {
+            } else if 9.0..<12.4 ~= currentSeconds {
                 DancingDotsView()
-            } else if 12.6..<15.2 ~= currentSeconds {
+            } else if 12.4..<15 ~= currentSeconds {
                 RainbowGridView()
-            } else if 15.2..<17.2 ~= currentSeconds {
+            } else if 15..<17 ~= currentSeconds {
                 GlitchedTextEffect(timer: timer)
-            } else if 17.2...upperLimit ~= currentSeconds {
+            } else if 17...upperLimit ~= currentSeconds {
                 EruptEffect()
             }
         }

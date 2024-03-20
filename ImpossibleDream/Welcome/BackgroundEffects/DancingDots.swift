@@ -121,7 +121,7 @@ struct DancingDotsView: View {
                     isAnimating = true
                     tracker.randomizePositions()
                 } completion: {
-                    withAnimation(.snappy(duration: 0.3)) {
+                    withAnimation(.snappy(duration: 0.2)) {
                         CoreHapticsManager.shared.thunk()
                         tracker.resetPositions()
                         isAnimating = false
