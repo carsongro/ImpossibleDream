@@ -98,12 +98,12 @@ struct DancingDotsView: View {
                         ZStack {
                             Circle()
                                 .offset(bigDot.offset)
-                                .foregroundColor(bigDot.color)
+                                .foregroundStyle(bigDot.color)
                                 .scaleEffect(bigDot.scale)
                             ForEach(bigDot.smallDots) { smallDot in
                                 Circle()
                                     .offset(smallDot.offset)
-                                    .foregroundColor(smallDot.color)
+                                    .foregroundStyle(smallDot.color)
                             }
                         }
                     }
