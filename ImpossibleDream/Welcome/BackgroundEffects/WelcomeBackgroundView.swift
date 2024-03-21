@@ -25,6 +25,7 @@ struct WelcomeBackgroundView: View {
                 RainbowGridView()
             } else if 15..<17 ~= currentSeconds {
                 GlitchedTextEffect(timer: timer)
+                    .foregroundStyle(.white)
             } else if 17...upperLimit ~= currentSeconds {
                 EruptEffect()
             }

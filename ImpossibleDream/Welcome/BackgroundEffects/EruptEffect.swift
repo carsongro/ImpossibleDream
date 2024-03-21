@@ -26,7 +26,7 @@ class EruptParticleSystem {
     var particles = [EruptParticle]()
     var lastUpdate = Date.now.timeIntervalSinceReferenceDate
     
-    func update(date: TimeInterval, size: CGSize) {
+    func update(date: TimeInterval, size: CGSize, isFaster: Bool) {
         let delta = date - lastUpdate
         lastUpdate = date
         
@@ -41,9 +41,9 @@ class EruptParticleSystem {
         
         let newParticle = EruptParticle(
             x: -32,
-            y: size.height / 2,
-            xSpeed: .random(in: 0...300),
-            ySpeed: .random(in: -75...75)
+            y: isFaster ? .random(in: (size.height / 2 - 40)...size.height / 2 + 40) : size.height / 2,
+            xSpeed: isFaster ? .random(in: 400...800) : .random(in: 0...300),
+            ySpeed: isFaster ? .random(in: -75...75)  : .random(in: -75...75)
         )
         particles.append(newParticle)
     }
@@ -51,6 +51,8 @@ class EruptParticleSystem {
 
 
 struct EruptEffect: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
     @State private var particleSystem = EruptParticleSystem()
     @State private var showEruption = false
     
@@ -84,7 +86,7 @@ struct EruptEffect: View {
             TimelineView(.animation) { timeline in
                 Canvas { ctx, size in
                     let timelineDate = timeline.date.timeIntervalSinceReferenceDate
-                    particleSystem.update(date: timelineDate, size: size)
+                    particleSystem.update(date: timelineDate, size: size, isFaster: horizontalSizeClass == .regular)
                     ctx.addFilter(.alphaThreshold(min: 0.5, color: .white))
                     ctx.addFilter(.blur(radius: 10))
                     

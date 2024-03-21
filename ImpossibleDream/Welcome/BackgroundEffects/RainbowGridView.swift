@@ -16,10 +16,10 @@ struct RainbowGridView: View, @unchecked Sendable {
             
             ImpossibleText()
                 .foregroundStyle(.white)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onAppear(perform: CoreHapticsManager.shared.rainbow)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .drawingGroup()
+        .onAppear(perform: CoreHapticsManager.shared.rainbow)
     }
     
     @ViewBuilder
@@ -41,6 +41,7 @@ struct RainbowGridView: View, @unchecked Sendable {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
         .ignoresSafeArea()
         .onAppear {
