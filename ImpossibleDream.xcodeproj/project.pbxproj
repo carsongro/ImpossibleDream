@@ -116,7 +116,6 @@
 		B84605182BA697F100505F44 /* BackgroundEffects */ = {
 			isa = PBXGroup;
 			children = (
-				B88BBDC52BAA5BBD006B645F /* MotionManager.swift */,
 				B84605232BA7F34600505F44 /* ImpossibleText.swift */,
 				B8DE91FD2BA40605000DB1B4 /* RainbowGridView.swift */,
 				B84605192BA6982D00505F44 /* EruptEffect.swift */,
@@ -147,6 +146,14 @@
 			path = Redacted;
 			sourceTree = "<group>";
 		};
+		B8659FEE2BACD93E003A5536 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				B88BBDC52BAA5BBD006B645F /* MotionManager.swift */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
 		B8B1E1262BA3B10E00ECC399 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +180,7 @@
 				B8B1E1342BA3B10E00ECC399 /* ContentView.swift */,
 				B846050F2BA6831000505F44 /* Goal */,
 				B818BAA22BA5189800CF433C /* Welcome */,
+				B8659FEE2BACD93E003A5536 /* Motion */,
 				B8DE91FF2BA412EE000DB1B4 /* Haptics */,
 				B818BAA62BA518E600CF433C /* Other */,
 				B818BA952BA4F7B600CF433C /* Model */,
@@ -432,7 +440,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.3;
@@ -473,7 +481,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.3;

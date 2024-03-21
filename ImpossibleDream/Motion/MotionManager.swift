@@ -14,6 +14,8 @@ class MotionManager: @unchecked Sendable {
     
     private let motionManager = CMMotionManager()
     
+    private var motionIsAvailable: Bool { motionManager.isDeviceMotionAvailable }
+    
     private var viewCount = 0 {
         didSet {
             if viewCount == 1 {
@@ -28,10 +30,14 @@ class MotionManager: @unchecked Sendable {
     var y = 0.0
     
     private init() {
+        guard motionIsAvailable else { return }
+        
         motionManager.deviceMotionUpdateInterval = 1 / 120
     }
     
     private func start() {
+        guard motionIsAvailable else { return }
+        
         motionManager.startDeviceMotionUpdates(to: .main) { [weak self] data, error in
             guard let motion = data?.attitude else { return }
             self?.x = motion.roll
@@ -40,14 +46,20 @@ class MotionManager: @unchecked Sendable {
     }
     
     private func stop() {
+        guard motionIsAvailable else { return }
+        
         motionManager.stopDeviceMotionUpdates()
     }
     
     func addView() {
+        guard motionIsAvailable else { return }
+        
         viewCount += 1
     }
     
     func removeView() {
+        guard motionIsAvailable else { return }
+        
         viewCount -= 1
     }
 }
