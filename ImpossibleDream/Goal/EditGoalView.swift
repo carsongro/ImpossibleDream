@@ -22,7 +22,7 @@ struct EditGoalView: View {
                     .listRowBackground(Color.clear.background(.ultraThinMaterial))
             }
             
-            Section("Tasks") {
+            Section {
                 ForEach(goal.tasks) { task in
                     Text(task.name)
                         .listRowBackground(Color.clear.background(.ultraThinMaterial))
@@ -30,11 +30,15 @@ struct EditGoalView: View {
                 .onDelete(perform: deleteTask)
                 
                 HStack {
-                    TextField("Add a new task for \(goal.name)", text: $newTaskName)
+                    TextField("Add a new task", text: $newTaskName)
                     
                     Button("Add", action: addTask)
                 }
                 .listRowBackground(Color.clear.background(.ultraThinMaterial))
+            } header: {
+                Text("Tasks")
+            } footer: {
+                Text("The completions of tasks resets daily.")
             }
             
             Section {
@@ -53,8 +57,13 @@ struct EditGoalView: View {
             }
         }
         .navigationTitle("Edit Goal")
+        #if !os(macOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
         .scrollContentBackground(.hidden)
+        #if os(macOS)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        #endif
         .notvisionOS { $0.gradientBackground() }
     }
     

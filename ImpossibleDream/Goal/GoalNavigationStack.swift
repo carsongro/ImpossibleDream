@@ -16,6 +16,9 @@ struct GoalNavigationStack: View {
             GoalView(goal: goal)
                 .navigationTitle(goal.name)
                 .navigationDestination(for: Goal.self, destination: EditGoalView.init)
+                #if os(macOS)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                #endif
                 .notvisionOS { $0.gradientBackground() }
         }
     }

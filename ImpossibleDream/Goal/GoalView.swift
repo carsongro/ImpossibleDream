@@ -13,10 +13,25 @@ struct GoalView: View {
     
     var body: some View {
         Form {
-            Section {
-                ForEach(goal.tasks) { task in
-                    GoalTaskRowView(task: task)
-                        .notvisionOS { $0.listRowBackground(Color.clear.background(.ultraThinMaterial)) }
+            if goal.tasks.isEmpty {
+                Section { } header: {
+                    ContentUnavailableView {
+                        Label("No Tasks", systemImage: "list.bullet.rectangle.portrait.fill")
+                    } actions: {
+                        NavigationLink(value: goal) {
+                            Label("Add Tasks", systemImage: "plus.circle")
+                        }
+                    }
+                    .textCase(.none)
+                }
+            } else {
+                Section {
+                    ForEach(goal.tasks) { task in
+                        GoalTaskRowView(task: task)
+                            .notvisionOS { $0.listRowBackground(Color.clear.background(.ultraThinMaterial)) }
+                    }
+                } header: {
+                    Text("Tasks")
                 }
             }
         }

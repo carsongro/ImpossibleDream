@@ -46,7 +46,7 @@ struct WelcomeCreateGoalView: View {
                 .onDelete(perform: deleteTask)
                 
                 HStack {
-                    TextField("Add a new task for \(goalName)", text: $newTaskName)
+                    TextField("Add a new task", text: $newTaskName)
                     
                     Button("Add", action: addTask)
                 }

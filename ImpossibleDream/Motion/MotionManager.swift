@@ -6,6 +6,7 @@
 //
 
 import Foundation
+#if !os(macOS)
 import CoreMotion
 
 @Observable
@@ -63,3 +64,4 @@ class MotionManager: @unchecked Sendable {
         viewCount -= 1
     }
 }
+#endif
